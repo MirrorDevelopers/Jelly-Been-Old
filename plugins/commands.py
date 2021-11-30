@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 @Client.on_message(filters.command("start"))
 async def start(bot, cmd):
     usr_cmdall1 = cmd.text
-    if usr_cmdall1.startswith("/start SenuInfinity"):
+    if usr_cmdall1.startswith("/start "):
         if AUTH_CHANNEL:
             invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
             try:
@@ -33,7 +33,7 @@ async def start(bot, cmd):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("❖ Join Updates Channel ❖", url=invite_link.invite_link)
+                                InlineKeyboardButton("❖ Join Updates Channel ❖", url=t.me/TeamSingleZ)
                             ],
                             [
                                 InlineKeyboardButton("↺ Try Again ↻", callback_data=f"checksub#{file_id}")
@@ -90,7 +90,7 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("👉 Join Updates Channel 👈", url=invite_link.invite_link)
+                        InlineKeyboardButton("👉 Join Updates Channel 👈", url=t.me/TeamSingleZ)
                     ]
                 ]
             )
@@ -104,7 +104,7 @@ async def start(bot, cmd):
                 [
                     [
                         InlineKeyboardButton("⎚ Search Here ⎚", switch_inline_query_current_chat=''),
-                        InlineKeyboardButton("↺ My Updates ↻", url="https://t.me/MaX_Bots")
+                        InlineKeyboardButton("↺ My Updates ↻", url="https://t.me/TeamSingleZ")
                     ],
                     [
                         InlineKeyboardButton("❖ About Me ❖", callback_data="about")
@@ -150,7 +150,7 @@ async def total(bot, message):
     msg = await message.reply("Processing...⏳", quote=True)
     try:
         total = await Media.count_documents()
-        await msg.edit(f'📁 All My DB Saved files: {total}')
+        await msg.edit(f'📁 All My Saved files: {total}')
     except Exception as e:
         logger.exception('Failed to check total files')
         await msg.edit(f'Error: {e}')
@@ -196,8 +196,8 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('🔔 My Updates 🔔', url='https://t.me/MaX_Bots'),
+            InlineKeyboardButton('🔔 My Updates 🔔', url='https://t.me/TeamSingleZ),
             InlineKeyboardButton('🗴 Support 🗴', url=f'{TUTORIAL}')
         ]
         ]
-    await message.reply(text=f"<b>👋Hi,\nI am Very Powerfull Movie Filter Bot By @MaX_Bots\n\nAbout Me 🗯\n🔬Language : <code>Python3</code>\n📚Library : <a href='https://docs.pyrogram.org/'>Pyrogram</a>\nSource Code 📑 : 🔐\nSupport 🌻: <a href='{TUTORIAL}'>Click here</a>\nMy Updates 🎇: <a href='https://t.me/MaX_Bots'>Click here</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text=f"<b>👋Hi,\nI am Very Powerfull Movie Filter Bot By @TeamSingleZ \n\nAbout Me 🗯\n🔬Language : <code>Python3</code>\n📚Library : <a href='https://docs.pyrogram.org/'>Pyrogram</a>\nSupport 🌻: <a href='{TUTORIAL}'>Click here</a>\nMy Updates 🎇: <a href='https://t.me/TeamSingleZ>Click here</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
